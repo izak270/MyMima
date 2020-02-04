@@ -6,3 +6,6 @@ questions  ???ask qeustions????,
 questions_archive list of questions and answers,
 last_updates-last updated songs,
 fact_page facts
+relationships:
+    singer - song!
+    song - fact!
