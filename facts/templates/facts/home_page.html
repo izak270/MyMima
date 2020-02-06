@@ -11,7 +11,14 @@
     <a href="home_page.html">
         <img src="{% static 'images/logo.png' %}" alt="logo">
     </a>
-    <form>
+{#    <form method="post" novalidate>#}
+{#        {% csrf_token %}#}
+{#        <ul>#}
+{#            {{ form.as_ul }}#}
+{#        </ul>#}
+{#        <button>הולכת מחפשת</button>#}
+{#    </form>#}
+    <form action="{{  }}">
         <input type="text" align="right" name="" id="">
         <input type="submit" value="הולכת מחפשת " id="">
     </form>
@@ -34,8 +41,8 @@
     <table border="0" align="center">
         <tr>
             {% for let in letters %}
-                    <td bgcolor="#FFCCCC"><a href="song/{{ let }}">{{ let }}</a></td>
-                {% endfor %}
+                <td bgcolor="#FFCCCC"><a href="song/{{ let }}">{{ let }}</a></td>
+            {% endfor %}
 
         </tr>
     </table>

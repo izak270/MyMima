@@ -15,7 +15,7 @@ class Command(BaseCommand):
         Facts.objects.all().delete()
         Song.objects.all().delete()
         Artist.objects.all().delete()
-        for i in range(3, n):
+        for i in range(1, n):
             print(i,'befor')
             r = requests.get(f"https://www.mima.co.il/fact_page.php?song_id={i}").text
             print(i,'after')
@@ -24,14 +24,16 @@ class Command(BaseCommand):
                 all_data = ti.text.split(' - ')
                 artist = all_data[1]
                 song = all_data[2][:-1]
-                fact = ''
+                facts = []
                 for fa in soup.find_all('tr'):
                     if fa.get('bgcolor'):
-                        fact += fa.text
+                        facts.append(fa.text)
                 o,b = Artist.objects.get_or_create(name=artist)
                 o.save()
                 # print((Artist.objects.all()[0]))
                 o1 = Song(name=song, artist=o)
                 o1.save()
-                o2 = Facts(song=o1, fact=fact)
-                o2.save()
+                if facts:
+                    for fact in facts:
+                        o2,b = Facts.objects.get_or_create(song=o1, fact=fact)
+                        o2.save()
