@@ -1,0 +1,32 @@
+body{
+    direction: rtl;
+}
+img{
+    width: 262px;
+    height: 92px;
+}
+form{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 40px;
+}
+.song{
+    display: flex;
+}
+.artist{
+    display: flex;
+    margin-left: 15px;
+}
+.container{
+    display: flex;
+}
+.container p{
+    margin: 0;
+}
+footer{
+    text-align: center;
+}
+.artist_found{
+    background-color: rgb(128,0,0);
+    color: white;
+}

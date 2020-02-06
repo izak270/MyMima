@@ -1,0 +1,77 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet"
+          href="{% static "css/base.css" %}">
+    <title>{% block title %}PO TIDCHUF TITLE{% endblock %}</title>
+</head>
+
+<body>
+<div class="navbar">
+    <a href="home_page.html">
+        <img src="{% static 'images/logo.png' %}" alt="logo">
+    </a>
+    <form>
+        <input type="text" align="right" name="" id="">
+        <input type="submit" value="הולכת מחפשת " id="">
+    </form>
+</div>
+<div class="container">
+    <div class="artist">
+        <p>
+            חפש לפי שם אמן:
+        </p>
+        <table border="0">
+            <tr>
+                 {% for let in letters %}
+                    <td bgcolor="#CCFFCC"><a href="{{ let }}">{{ let }}</a></td>
+                {% endfor %}
+
+            </tr>
+        </table>
+    </div>
+    <div class="song">
+        <p>
+            חפש לפי שם שיר:
+
+        <table border="0">
+            <tr>
+                 {% for let in letters %}
+                    <td bgcolor="#FFCCCC"><a href="{{ let }}">{{ let }}</a></td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+</div>
+
+{% block content %}PO TIDCHUF CONTENT{% endblock %}
+<footer>
+    <a href="add_fact.php"> הוסף עובדה חדשה </a> &nbsp;<!-- <a href="ask.php"> שאל את מימה </a> &nbsp; -->
+    <a href="questions.php">שאלות ללא תשובות </a> &nbsp;
+    <a href="last_updates.php"> מה חדש </a> &nbsp;
+    <a href="random.php"><b> תפתיעי אותי </b></a> &nbsp;
+    <a href="random.php"> דף ראשי </a> &nbsp;
+    <br>
+    <p class="psico">
+        <a href="rss.php"> RSS</a> &nbsp;
+        <a href="term.php"> תנאי שימוש</a> &nbsp;
+        <a href="http://www.tipul.me" target="_blank"> פסיכולוגית</a> &nbsp;
+        <a href="http://www.tipul.me" target="_blank"> פסיכולוג </a> &nbsp;
+        <a href="todot.php"> תודות</a> &nbsp;
+        <a href="contact.php"> צור קשר</a>
+    </p>
+    <br>
+    מימה, 2020</center>
+
+
+</footer>
+
+>
+</body>
+
+</html>
