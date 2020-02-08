@@ -74,7 +74,26 @@ def facts(request, song, artist):
                'artist': artist,
                'letters': letters,
                'name': song
-
                }
     return render(request, 'facts/facts.html', context)
-# def search(request):
+
+
+def search(request):
+    colors = ['#CCFFCC', '#EDF3FE']
+    query = request.GET.get('q')
+    artist_results = Artist.objects.filter(name__contains=query)
+    song_results = Song.objects.filter(name__contains=query)
+    search_fact = Facts.objects.filter(fact__contains=query)
+    i = 0
+    fact_results = []
+    for fact in search_fact:
+        fact_results.append((fact, colors[i % 2]))
+        i += 1
+    context = {
+        "artist_results": artist_results,
+        "song_results": song_results,
+        "fact_results": fact_results,
+        'letters': letters,
+        'colors': colors
+    }
+    return render(request, 'facts/search.html', context)

@@ -30,7 +30,6 @@ class Command(BaseCommand):
                         facts.append(fa.text)
                 o,b = Artist.objects.get_or_create(name=artist)
                 o.save()
-                # print((Artist.objects.all()[0]))
                 o1 = Song(name=song, artist=o)
                 o1.save()
                 if facts:

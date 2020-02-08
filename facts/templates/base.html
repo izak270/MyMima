@@ -16,8 +16,8 @@
     <a href="home_page.html">
         <img src="{% static 'images/logo.png' %}" alt="logo">
     </a>
-    <form>
-        <input type="text" align="right" name="" id="">
+    <form action="/search" method="get">
+        <input type="text" align="right" name="q" value="{{ request.GET.q }}" id="">
         <input type="submit" value="הולכת מחפשת " id="">
     </form>
 </div>

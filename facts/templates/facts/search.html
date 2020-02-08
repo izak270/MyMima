@@ -8,8 +8,16 @@
     </div>
     <div>/
         <h2>תוצאות באמנים</h2>
-    {% for song in artist_list %}
-        <p><a href="/facts/{{ song.0 }}/{{ song.1 }}">{{ song.0 }}</a> - {{ song.1 }}</p>
+    {% for result in artist_results %}
+        <p><a href="/song_artist/{{ result }}">{{ result }}</a> </p>
+    {% endfor %}
+     <h2>תוצאות בשירים</h2>
+    {% for result in song_results %}
+        <p><a href="/facts/{{ result.name }}/{{ result.artist.name }}">{{ result.name }}</a> - {{ result.artist.name }}</p>
+    {% endfor %}
+    <h2>עובדות קשורות </h2>
+    {% for result in fact_results %}
+        <p style="background-color: {{ result.1 }};margin: 0"><a href="/facts/{{ result.0.song.name }}/{{ result.0.song.artist.name}}">{{ result.0.song.name }}</a> - {{ result.0.song.artist.name }}<br>{{ result.0.fact }}</p>
     {% endfor %}
     </div>
 {% endblock %}
